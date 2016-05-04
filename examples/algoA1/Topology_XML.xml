@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topology version="1.0">
+	<bus id="1">
+		<v_nom value="12470"/> <!-- V L_L  , changed to Vph in the app, value in volt-->
+		<freq value="50"/>
+		<pmu station-name="PMU#1"/>
+		<connection current_id="4" refid="100"/>
+	</bus>
+	<bus id="2">
+		<v_nom value="12460"/> <!-- V L_L  , changed to Vph in the app, value in volt-->
+		<freq value="50"/>
+		<pmu station-name="PMU#2"/>
+		<connection current_id="1" refid="100"/>
+		<connection current_id="4" refid="101"/>
+	</bus>
+	<bus id="3">
+		<v_nom value="4156"/> <!-- V L_L  , changed to Vph in the app, value in volt-->
+		<freq value="50"/>
+		<pmu station-name="PMU#3"/>
+		<connection current_id="1" refid="102"/>
+		<connection current_id="4" refid="103"/>
+	</bus>
+	<bus id="4">
+		<v_nom value="4137"/> <!-- V L_L  , changed to Vph in the app, value in volt-->
+		<freq value="50"/>
+		<pmu station-name="PMU#4"/>
+		<connection current_id="1" refid="103"/>
+	</bus>
+	<transformer id="2" >
+		<configuration tran_type="2" ratio="0.3336" conn="1" r="1" x="6" snom="6000000" vnom_p_side="12470"/>
+							<!--type integer value in 1-5 
+								1) one phase
+								2) three phase Y/Y
+								3) three phase Y/A
+								4) three phase A/Y
+								5) three phase A/A
+							-->
+		<!-- transformer_ratio ratio="n"-->
+						  <!-- long value 
+						  P  ->  S
+						  1  : n
+						  the exact ratio value according to calculations
+						  -->
+		<!-- phase_connection_order conn=""-->
+								<!-- integer value in 1-6
+								1) Y/Y 12 - 0*
+								2) Y/Y 6 - 180*
+								3) Y/A 5 - 150*
+								4) Y/A 1 - 30* 
+								5) Y/A 11 - 330*
+								6) Y/A 7 - 210*
+								the angle change
+								-->
+
+		<!-- r - R% ; x- X%  in percent from nominal
+		snom in kVA-->
+		<connection refid="101"/>
+		<connection refid="102"/>
+	</transformer>
+
+	<connection id="100">
+		<length unit="km" value="0.6"/>
+		<cable r0="0.19" x0="0.1713" D="0.0183" Dab="0.0635" Dac="0.1778" Dbc="0.1143"/><!--r0-omh/km; x0-omh/km D-diameter,Dab,Dac,Dbc,d1,d2,d3,d4,d5 - km -->
+		<configuration type="1" d1="0" d2="0" d3="0" d4="0" d5="0"/>
+									<!-- type-->
+								<!-- integer value in 1-4 -->
+								<!-- 
+								1)   O
+								
+								2)   0 <- d1 -> O
+								
+								
+								3)   0 <- d1 -> O
+                                       d2   d3							
+								          0
+										  
+								4)   0 - d1 - 0
+								     |      / |
+									d2   d3   d5
+									 | /	  |
+									 o - d4 - 0
+								-->
+								<!-- d - long value in km -->
+	</connection>
+	<connection id="101">
+		<length unit="km" value="0.001"/>
+		<cable r0="0" x0="0" Dab="0.0635" Dac="0.1778" Dbc="0.1143"/> <!--  r0-omh/km; x0-omh/km D-diameter,Dab,Dac,Dbc,d1,d2,d3,d4,d5 - km -->
+		<configuration type="1" d1="0" d2="0" d3="0" d4="0" d5="0"/>
+									<!-- type-->
+								<!-- integer value in 1-4 -->
+								<!-- 
+								1)   O
+								
+								2)   0 <- d1 -> O
+								
+								
+								3)   0 <- d1 -> O
+                                       d2   d3							
+								          0
+										  
+								4)   0 - d1 - 0
+								     |      / |
+									d2   d3   d5
+									 | /	  |
+									 o - d4 - 0
+								-->
+								<!-- d - long value in km -->
+	</connection>
+	<connection id="102">
+		<length unit="km" value="0.001"/>
+		<cable r0="0" x0="0" Dab="0.0635" Dac="0.1778" Dbc="0.1143"/> <!--  r0-omh/km; x0-omh/km D-diameter,Dab,Dac,Dbc,d1,d2,d3,d4,d5 - km -->
+		<configuration type="1" d1="0" d2="0" d3="0" d4="0" d5="0"/>
+									<!-- type -->
+								<!-- integer value in 1-4 -->
+								<!-- 
+								1)   O
+								
+								2)   0 <- d1 -> O
+								
+								
+								3)   0 <- d1 -> O
+                                       d2   d3							
+								          0
+										  
+								4)   0 - d1 - 0
+								     |      / |
+									d2   d3   d5
+									 | /	  |
+									 o - d4 - 0
+								-->
+								<!-- d - long value in km -->
+	</connection>
+	<connection id="103">
+		<length unit="km" value="0.762"/>
+		<cable r0="0.19" x0="0.1713" D="0.0183" Dab="0.0635" Dac="0.1778" Dbc="0.1143"/> <!--  r0-omh/km; x0-omh/km D-diameter,Dab,Dac,Dbc,d1,d2,d3,d4,d5 - km -->
+		<configuration type="1" d1="0" d2="0" d3="0" d4="0" d5="0"/>
+									<!-- type-->
+								<!-- integer value in 1-4 -->
+								<!-- 
+								1)   O
+								
+								2)   0 <- d1 -> O
+								
+								
+								3)   0 <- d1 -> O
+                                       d2   d3							
+								          0
+										  
+								4)   0 - d1 - 0
+								     |      / |
+									d2   d3   d5
+									 | /	  |
+									 o - d4 - 0
+								-->
+								<!-- d - long value in km -->
+	</connection>
+</topology>
